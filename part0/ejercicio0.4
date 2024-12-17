@@ -3,6 +3,7 @@ sequenceDiagram
     participant server
 
     browser->>server: POST https://studies.cs.helsinki.fi/exampleapp/new_note
+              payload: "nueva nota"
     activate server
     server-->>browser: HTML document
     deactivate server
@@ -22,11 +23,9 @@ sequenceDiagram
     server-->>browser: the JavaScript file
     deactivate server
 
-    Note right of browser: The browser starts executing the JavaScript code that fetches the JSON from the server
-
     browser->>server: GET https://studies.cs.helsinki.fi/exampleapp/data.json
     activate server
-    server-->>browser: [{ "content": "nueva nota", "date": "2024-12-17" }, ... ]
+    server-->>browser: [{content: "Heeeeeeyo", date: "2024-12-17T13:15:19.361Z"},…]
     deactivate server
 
-    Note right of browser: The browser executes the callback function that renders the notes
+    
